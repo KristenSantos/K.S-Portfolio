@@ -20,7 +20,7 @@ const ProjectCard = ({
   >
     <div className="h-48 bg-gray-200 relative">
       <img
-        src={image} // Replace with actual project screenshots
+        src={image} 
         alt={title}
         className="w-full h-full object-cover"
       />

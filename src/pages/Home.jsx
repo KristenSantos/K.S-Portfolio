@@ -18,74 +18,11 @@ import {
 } from "lucide-react";
 import LoadingScreen from "../components/LoadingScreen";
 
-const TimelineItem = ({ side, year, title, description }) => (
-  <motion.div
-    initial={{ opacity: 0, x: side === "left" ? -20 : 20 }}
-    whileInView={{ opacity: 1, x: 0 }}
-    transition={{ delay: 0.2 }}
-    className={`relative ${side === "right" ? "md:col-start-2" : ""}`}
-  >
-    <div className="bg-white p-6 rounded-xl shadow-lg border-2 border-[#FFA2B6]">
-      <div
-        className="absolute top-1/2 transform -translate-y-1/2 w-4 h-4 bg-[#E43D12] rounded-full
-          ${side === 'left' ? 'right-0 translate-x-1/2' : 'left-0 -translate-x-1/2'}"
-      />
-      <span className="text-[#E43D12] font-bold">{year}</span>
-      <h3 className="text-xl font-semibold mt-2">{title}</h3>
-      <p className="text-gray-600 mt-2">{description}</p>
-    </div>
-  </motion.div>
-);
-
-const FocusCard = ({ icon: Icon, title, description, skills }) => (
-  <div className="flex gap-4 group">
-    <div className="flex-shrink-0">
-      <div
-        className="w-12 h-12 bg-[#FFA2B6] rounded-lg flex items-center justify-center 
-          transform transition-transform duration-300 group-hover:scale-110"
-      >
-        <Icon size={24} className="text-[#E43D12]" />
-      </div>
-    </div>
-    <div>
-      <h4 className="text-lg font-semibold mb-2">{title}</h4>
-      <p className="text-gray-600 mb-3">{description}</p>
-      <div className="flex flex-wrap gap-2">
-        {skills.map((skill) => (
-          <span
-            key={skill}
-            className="px-2 py-1 bg-[#FFA2B6] text-[#E43D12] rounded-full text-sm"
-          >
-            {skill}
-          </span>
-        ))}
-      </div>
-    </div>
-  </div>
-);
-
-const StatCard = ({ icon: Icon, title, value }) => (
-  <motion.div
-    whileHover={{ y: -5 }}
-    className="bg-white p-6 rounded-xl shadow-lg border-2 border-transparent hover:border-[#FFA2B6] transition-all duration-300"
-  >
-    <div className="flex items-center gap-4">
-      <div className="p-3 bg-[#FFA2B6] rounded-lg">
-        <Icon size={24} className="text-[#E43D12]" />
-      </div>
-      <div>
-        <h3 className="text-2xl font-bold">{value}</h3>
-        <p className="text-gray-600">{title}</p>
-      </div>
-    </div>
-  </motion.div>
-);
-
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => setIsLoading(false), 2000);
+    setTimeout(() => setIsLoading(false), 1000);
   }, []);
 
   const [text] = useTypewriter({
@@ -93,12 +30,6 @@ const Home = () => {
     loop: true,
     delaySpeed: 2000,
   });
-
-  const stats = [
-    { icon: Code, title: "Projects Completed", value: "8+" },
-    { icon: Briefcase, title: "Years Experience", value: "2+" },
-    { icon: Award, title: "Certifications", value: "3" },
-  ];
 
   if (isLoading) return <LoadingScreen />;
 

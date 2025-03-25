@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Code2, BookOpen, Rocket, Heart } from "lucide-react";
-import TechnicalSkills from "../components/TechnicalSkills"; // Import the new component
+import TechnicalSkills from "../components/TechnicalSkills"; 
 
 const About = () => {
   return (
